@@ -2,11 +2,11 @@ Special Message ❤️
 
 This is an interactive, romantic proposal page designed with HTML, CSS, and JavaScript. It allows users to interact with heartfelt popups, floating hearts, and personalized messages in a beautiful romantic setting. The background images are dynamically loaded from Unsplash, giving the page a fresh and attractive look each time. 🌹
 Features ✨
-- Romantic Backgrounds:** Dynamic romantic-themed backgrounds fetched from Unsplash. 📸
-- Floating Hearts:** Animated hearts float across the screen to enhance the romantic feel. 💖
-- Interactive Popups:** The page features a series of popups asking affectionate questions and sharing sweet messages. 💬
-- Personalized Experience:** Easily customizable to include the name of your loved one and modify message content. 💑
-- Responsive Design:** The page is fully responsive, ensuring it looks great on both desktop and mobile devices. 📱
+- Romantic Backgrounds: Dynamic romantic-themed backgrounds fetched from Unsplash. 📸
+- Floating Hearts: Animated hearts float across the screen to enhance the romantic feel. 💖
+- Interactive Popups: The page features a series of popups asking affectionate questions and sharing sweet messages. 💬
+- Personalized Experience: Easily customizable to include the name of your loved one and modify message content. 💑
+- Responsive Design: The page is fully responsive, ensuring it looks great on both desktop and mobile devices. 📱
 
  How to Use 💡
 1. Copy the Code: Copy the entire code provided and paste it into a new file in **VS Code** (or any other code editor of your choice). ✍️   
