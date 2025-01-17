@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message ❤️</title>
+    <style>
+        /* Body and Background */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?romantic,love') no-repeat center center fixed, 
+                        url('https://source.unsplash.com/1600x900/?romantic,couple') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Blur Effect */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+            z-index: 0;
+        }
+
+        /* Heart Animation */
+        .heart {
+            position: absolute;
+            color: #ff5c5c;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: floatHearts 5s linear infinite;
+        }
+
+        @keyframes floatHearts {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Popups */
+        .popup {
+            position: absolute;
+            z-index: 10;
+            width: 90%;
+            max-width: 400px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            display: none;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .popup.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .popup p {
+            margin: 0 0 15px;
+            font-size: 18px;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            background-color: #ff5c5c;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff3030;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .popup p {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="popup" id="popup1">
+        <p>Hi there! How are you today? 😊</p>
+        <div class="buttons">
+            <button onclick="nextPopup(2)">Good</button>
+            <button onclick="nextPopup(2)">Not Bad</button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup2">
+        <p>Have you ever felt someone cares deeply for you? ❤️</p>
+        <div class="buttons">
+            <button onclick="nextPopup(3)">Yes</button>
+            <button onclick="nextPopup(3)">No</button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup3">
+        <p>Here’s a small confession: I think you’re truly amazing. 🌟</p>
+        <div class="buttons">
+            <button onclick="nextPopup(4)">Tell me more</button>
+            <button onclick="nextPopup(4)">Okay 😊</button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup4">
+        <p>I believe we’d make an incredible pair. Would you be my partner? 💍</p>
+        <div class="buttons">
+            <button onclick="nextPopup(5)">Yes</button>
+            <button onclick="showAlternativeResponse()">No</button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup5">
+        <p>Thank you! Let’s create beautiful memories together. 💕</p>
+        <button onclick="finishMessage()">Finish</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let currentPopup = 1;
+
+        function createHearts() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerText = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHearts, 500);
+
+        function nextPopup(popupNumber) {
+            document.getElementById(`popup${currentPopup}`).classList.remove('active');
+            const next = document.getElementById(`popup${popupNumber}`);
+            if (next) {
+                next.classList.add('active');
+                currentPopup = popupNumber;
+            }
+        }
+
+        function showAlternativeResponse() {
+            document.getElementById(`popup${currentPopup}`).classList.remove('active');
+            alert("It’s okay! Thanks for your time. You’re still amazing! 🌸");
+        }
+
+        function finishMessage() {
+            alert("Thank you for accepting! Let’s make this journey wonderful. ❤️");
+        }
+
+        window.onload = () => {
+            document.getElementById('popup1').classList.add('active');
+        };
+    </script>
+</body>
+</html>
